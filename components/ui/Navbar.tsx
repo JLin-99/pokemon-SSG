@@ -7,7 +7,7 @@ export const NavbarUI = () => {
 
   return (
     <Navbar isCompact isBordered={isDark} variant="floating">
-      <Navbar.Brand>
+      <Navbar.Brand css={{ cursor: "pointer" }}>
         <Image
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
           alt="Logo de la App"

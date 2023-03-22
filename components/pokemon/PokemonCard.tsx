@@ -1,6 +1,8 @@
 import { FC } from "react";
 
-import { Button, Card, Col, Row, Text, useTheme } from "@nextui-org/react";
+import { useRouter } from "next/router";
+
+import { Button, Card, Row, Text, useTheme } from "@nextui-org/react";
 import { TiStarOutline } from "react-icons/ti";
 
 import { SmallPokemon } from "@/interfaces";
@@ -11,9 +13,19 @@ interface Props {
 
 export const PokemonCard: FC<Props> = ({ pokemon }) => {
   const { theme } = useTheme();
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push(`/pokemon/${pokemon.id}`);
+  };
 
   return (
-    <Card css={{ w: "100%", h: "200px" }}>
+    <Card
+      isHoverable
+      isPressable
+      css={{ w: "100%", h: "200px" }}
+      onClick={onClick}
+    >
       <Card.Header css={{ position: "absolute", zIndex: 1 }}>
         <Row>
           <Text
@@ -55,7 +67,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
         }}
       >
         <Row justify="flex-end">
-          <Button flat auto bordered rounded color="gradient">
+          <Button auto bordered rounded color="gradient">
             <TiStarOutline size={20} color={theme?.colors.secondary.value} />
           </Button>
         </Row>
