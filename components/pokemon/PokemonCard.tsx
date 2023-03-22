@@ -67,8 +67,8 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
         }}
       >
         <Row justify="flex-end">
-          <Button auto bordered rounded color="gradient">
-            <TiStarOutline size={20} color={theme?.colors.secondary.value} />
+          <Button auto bordered color="gradient" rounded>
+            <TiStarOutline size={20} />
           </Button>
         </Row>
       </Card.Footer>

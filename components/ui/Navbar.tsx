@@ -6,7 +6,7 @@ export const NavbarUI = () => {
   const { isDark } = useTheme();
 
   return (
-    <Navbar isCompact isBordered={isDark} variant="floating">
+    <Navbar isBordered={isDark} variant="floating">
       <Navbar.Brand css={{ cursor: "pointer" }}>
         <Image
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
@@ -23,7 +23,7 @@ export const NavbarUI = () => {
       </Navbar.Brand>
       <Navbar.Content>
         <Navbar.Item>
-          <Button auto as={Link} shadow color="secondary" href="#">
+          <Button auto as={Link} bordered color="gradient" href="#">
             <Text b color="inherit" hideIn="xs" size="$sm">
               Favorites
             </Text>
