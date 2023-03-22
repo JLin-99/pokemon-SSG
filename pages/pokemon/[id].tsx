@@ -52,6 +52,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
                 display: "flex",
                 justifyContent: "space-between",
                 padding: 0,
+                "@xsMax": { flexDirection: "column" },
               }}
             >
               <Text
