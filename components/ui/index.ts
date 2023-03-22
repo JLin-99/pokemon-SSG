@@ -1,1 +1,1 @@
-export * from "./NavbarUI";
+export { NavbarUI as Navbar } from "./Navbar";

@@ -4,7 +4,7 @@ import Head from "next/head";
 
 import { Container } from "@nextui-org/react";
 
-import { NavbarUI } from "../ui";
+import { Navbar } from "../ui";
 
 interface Props {
   title?: string;
@@ -23,7 +23,7 @@ export const Layout: FC<PropsWithChildren<Props>> = ({ children, title }) => {
         <meta name="keywords" content={`${title}, pokemon, pokedex`} />
       </Head>
 
-      <NavbarUI />
+      <Navbar />
 
       <Container md css={{ marginTop: "20px" }}>
         {children}
