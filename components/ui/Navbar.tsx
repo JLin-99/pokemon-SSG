@@ -23,8 +23,10 @@ export const NavbarUI = () => {
       </Navbar.Brand>
       <Navbar.Content>
         <Navbar.Item>
-          <Button auto flat as={Link} color="secondary" href="#">
-            Favorites
+          <Button auto as={Link} shadow color="secondary" href="#">
+            <Text b color="inherit" hideIn="xs" size="$sm">
+              Favorites
+            </Text>
           </Button>
         </Navbar.Item>
       </Navbar.Content>
