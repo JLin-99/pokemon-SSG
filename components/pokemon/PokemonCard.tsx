@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 
@@ -13,9 +13,11 @@ interface Props {
 }
 
 export const PokemonCard: FC<Props> = ({ pokemon }) => {
-  const [isInFavorites, setIsInFavorites] = useState(
-    localFavorites.existInFavorites(+pokemon.id)
-  );
+  const [isInFavorites, setIsInFavorites] = useState(false);
+
+  useEffect(() => {
+    setIsInFavorites(localFavorites.existInFavorites(+pokemon.id));
+  }, []);
 
   const router = useRouter();
 
