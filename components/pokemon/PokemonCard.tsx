@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { Button, Card, Row, Text } from "@nextui-org/react";
 import { TiStar, TiStarOutline } from "react-icons/ti";
+import confetti from "canvas-confetti";
 
 import { SmallPokemon } from "@/interfaces";
 import { localFavorites } from "@/utils";
@@ -24,6 +25,18 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
   const onToggleFavorite = () => {
     localFavorites.toggleFavorite(+pokemon.id);
     setIsInFavorites(!isInFavorites);
+    if (!isInFavorites) {
+      confetti({
+        zIndex: 999,
+        particleCount: 50,
+        spread: 80,
+        angle: 100,
+        origin: {
+          x: 0.5,
+          y: 1,
+        },
+      });
+    }
   };
 
   const onClick = () => {
