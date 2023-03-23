@@ -1,7 +1,6 @@
-import Image from "next/image";
 import NextLink from "next/link";
 
-import { Button, Link, Navbar, Text, useTheme } from "@nextui-org/react";
+import { Button, Image, Link, Navbar, Text, useTheme } from "@nextui-org/react";
 
 export const NavbarUI = () => {
   const { isDark } = useTheme();

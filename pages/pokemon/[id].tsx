@@ -1,15 +1,24 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-import { Pokemon } from "@/interfaces";
-import { pokeAPI } from "@/api";
-import { Layout } from "@/components/layouts";
 import { Button, Card, Container, Grid, Image, Text } from "@nextui-org/react";
 
+import { Pokemon, Sprites } from "@/interfaces";
+import { pokeAPI } from "@/api";
+import { Layout } from "@/components/layouts";
+import { localFavorites } from "@/utils";
+
 interface Props {
-  pokemon: Pokemon;
+  pokemon: {
+    id: string;
+    name: string;
+    sprites: Sprites;
+  };
 }
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
+  const onToggleFavorite = () => {
+    localFavorites(+pokemon.id);
+  };
   return (
     <Layout
       title={
@@ -66,7 +75,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
                 {pokemon.name}
               </Text>
 
-              <Button color="gradient" ghost>
+              <Button color="gradient" ghost onPress={onToggleFavorite}>
                 Save to favorites
               </Button>
             </Card.Header>
@@ -134,9 +143,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { data } = await pokeAPI.get<Pokemon>(`/pokemon/${id}`);
 
+  const pokemon = {
+    id: data.id,
+    name: data.name,
+    sprites: data.sprites,
+  };
+
   return {
     props: {
-      pokemon: data,
+      pokemon,
     },
   };
 };

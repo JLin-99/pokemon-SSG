@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { useRouter } from "next/router";
 
-import { Button, Card, Row, Text, useTheme } from "@nextui-org/react";
+import { Button, Card, Row, Text } from "@nextui-org/react";
 import { TiStarOutline } from "react-icons/ti";
 
 import { SmallPokemon } from "@/interfaces";
@@ -12,7 +12,6 @@ interface Props {
 }
 
 export const PokemonCard: FC<Props> = ({ pokemon }) => {
-  const { theme } = useTheme();
   const router = useRouter();
 
   const onClick = () => {
