@@ -8,7 +8,13 @@ export const NavbarUI = () => {
   return (
     <Navbar isBordered={isDark} variant="floating">
       <Navbar.Brand>
-        <Link href="/" as={NextLink} color="secondary">
+        <Link
+          href="/"
+          as={NextLink}
+          css={{
+            textGradient: "45deg, $purple600 -20%, $pink600 100%",
+          }}
+        >
           <Image
             src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
             alt="Logo de la App"

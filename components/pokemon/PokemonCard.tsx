@@ -1,18 +1,28 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { useRouter } from "next/router";
 
 import { Button, Card, Row, Text } from "@nextui-org/react";
-import { TiStarOutline } from "react-icons/ti";
+import { TiStar, TiStarOutline } from "react-icons/ti";
 
 import { SmallPokemon } from "@/interfaces";
+import { localFavorites } from "@/utils";
 
 interface Props {
   pokemon: SmallPokemon;
 }
 
 export const PokemonCard: FC<Props> = ({ pokemon }) => {
+  const [isInFavorites, setIsInFavorites] = useState(
+    localFavorites.existInFavorites(+pokemon.id)
+  );
+
   const router = useRouter();
+
+  const onToggleFavorite = () => {
+    localFavorites.toggleFavorite(+pokemon.id);
+    setIsInFavorites(!isInFavorites);
+  };
 
   const onClick = () => {
     router.push(`/pokemon/${pokemon.id}`);
@@ -66,8 +76,17 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
         }}
       >
         <Row justify="flex-end">
-          <Button auto bordered color="gradient" rounded>
-            <TiStarOutline size={20} />
+          <Button
+            color="gradient"
+            onPress={onToggleFavorite}
+            auto
+            bordered={!isInFavorites}
+            rounded
+            css={{
+              padding: 16,
+            }}
+          >
+            {isInFavorites ? <TiStar size={20} /> : <TiStarOutline size={20} />}
           </Button>
         </Row>
       </Card.Footer>
