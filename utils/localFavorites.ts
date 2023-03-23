@@ -13,6 +13,7 @@ const toggleFavorite = (id: number) => {
 };
 
 const existInFavorites = (id: number): boolean => {
+  // When using this function on build time
   if (typeof window === "undefined") return false;
 
   const favorites: number[] = JSON.parse(
@@ -22,4 +23,8 @@ const existInFavorites = (id: number): boolean => {
   return favorites.includes(id);
 };
 
-export default { existInFavorites, toggleFavorite };
+const pokemons = (): number[] => {
+  return JSON.parse(localStorage.getItem("favorites") || "[]");
+};
+
+export default { existInFavorites, toggleFavorite, pokemons };
