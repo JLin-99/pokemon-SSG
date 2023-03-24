@@ -13,6 +13,7 @@ const NoFavorites = () => {
         width={250}
         height={250}
         css={{ opacity: 0.1 }}
+        alt="No favorites"
       />
       <Text h1 css={{ textAlign: "center" }}>
         No favorites

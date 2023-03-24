@@ -18,7 +18,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
 
   useEffect(() => {
     setIsInFavorites(localFavorites.existInFavorites(+pokemon.id));
-  }, []);
+  }, [pokemon.id]);
 
   const router = useRouter();
 
