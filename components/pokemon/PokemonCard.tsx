@@ -47,7 +47,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
     <Card
       isHoverable
       isPressable
-      css={{ w: "100%", h: "200px" }}
+      css={{ w: "100%", h: "200px", ds: "none" }}
       onClick={onClick}
     >
       <Card.Header css={{ position: "absolute", zIndex: 1 }}>
